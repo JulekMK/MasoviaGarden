@@ -1,0 +1,131 @@
+/* App.css */
+@import './styles/header.css';
+@import './styles/main.css';
+@import './styles/testimonials.css';
+@import './styles/about.css';
+@import './styles/footer.css';
+@import './styles/contact.css';
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 80px; /* Zapobiega zakrywaniu treści przez header */
+  zoom: 1.135;
+}
+
+/* Responsywność */
+@media (max-width: 1024px) {
+  #main {
+    padding: 50px 5%;
+  }
+
+  #napisy1 {
+    margin-top: -40px;
+  }
+
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonial-container {
+    grid-template-columns: repeat(2, 1fr); /* Zmiana na 2 kolumny na średnich ekranach */
+  }
+}
+
+@media (max-width: 768px) {
+  #main {
+    padding: 50px 5%;
+  }
+
+  #napisy1 {
+    margin-top: -30px;
+  }
+
+  #main h1 {
+    font-size: 2.5rem;
+  }
+
+  #main h2 {
+    font-size: 1.8rem;
+  }
+
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-container {
+    grid-template-columns: 1fr;
+    gap: 20px; /* Zmniejszenie odstępu między opiniami */
+  }
+
+  #footer {
+    padding: 20px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hlinks a {
+    padding: 8px;
+    margin: 0 10px;
+  }
+
+  #napisy1 {
+    margin-top: -20px;
+  }
+
+  #main h1 {
+    font-size: 2rem;
+  }
+
+  #main h2 {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    height: auto;
+  }
+
+  .card img {
+    height: 150px;
+  }
+
+  .testimonial-container {
+    grid-template-columns: 1fr;
+    gap: 15px; /* Zmniejszenie odstępu na małych ekranach */
+  }
+
+  .testimonial {
+    min-height: auto; /* Dopasowanie wysokości do zawartości */
+  }
+}
+
+#main {
+  padding: 100px 5%; /* Zmniejszamy padding z lewej i prawej strony, aby dopasować do szerokości */
+  text-align: center;
+  background-color: #f4f4f4;
+  width: 100%; /* Ustawiamy szerokość na 100%, żeby zajmował całą szerokość ekranu */
+}
+
+@media (min-width: 1440px) { /* Zastosowanie na dużych ekranach, np. 27-calowych */
+  #main {
+    padding: 130px 0; /* Usuwamy padding z boku, aby rozciągnąć na całą szerokość ekranu */
+    margin: 0; /* Usuwamy marginesy */
+    width: 100%; /* Upewniamy się, że zajmuje całą szerokość ekranu */
+  }
+
+  #header {
+    width: 100%; /* Header także rozciąga się na całą szerokość ekranu */
+  }
+}
+
+
+
+
