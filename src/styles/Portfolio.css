@@ -1,0 +1,47 @@
+
+.portfolio-section {
+    text-align: center;
+    padding: 50px 10%;
+  }
+  
+  .carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 1200px; /* Dostosowane do szerokości sekcji kart/opinii */
+    width: 100%;
+    margin: auto;
+}
+
+.carousel-slide img {
+    width: 100%; /* Obrazki zajmują całą szerokość kontenera */
+    height: 700px; /* Utrzymuje wysokość */
+    object-fit: cover; /* Zapobiega deformacjom */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+  button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 24px;
+  }
+  
+  button.prev {
+    left: 10px;
+  }
+  
+  button.next {
+    right: 10px;
+  }
+  
+  button:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  

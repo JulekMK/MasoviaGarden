@@ -1,0 +1,503 @@
+/* Kalendarz */
+.calendar-container {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 40px 30px;
+  max-width: 800px;
+  margin: 40px auto;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.calendar-container:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Nagłówek kalendarza */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 0 10px;
+}
+
+.calendar-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.calendar-header button {
+  background-color: transparent;
+  color: #666;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.calendar-header button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #1a1a1a;
+}
+
+/* Widok dni */
+.calendar-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  text-align: center;
+}
+
+/* Dni tygodnia */
+.calendar-body > div:first-child {
+  font-weight: 500;
+  color: #666;
+  font-size: 0.9rem;
+  padding: 12px 0;
+}
+
+/* Dni kalendarza */
+.calendar-day {
+  padding: 12px 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  color: #1a1a1a;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-day:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.calendar-day.other-month {
+  color: #999;
+  opacity: 0.7;
+}
+
+.calendar-day.reserved {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #d32f2f;
+  cursor: not-allowed;
+}
+
+.calendar-day.available {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #388e3c;
+  cursor: pointer;
+}
+
+.calendar-day.available:hover {
+  background-color: rgba(76, 175, 80, 0.2);
+}
+
+/* Dziś */
+.calendar-day.today {
+  background-color: hsl(207, 100%, 77%);
+  color: blue;
+  font-weight: 600;
+}
+
+/* Legenda */
+.calendar-legend {
+  margin-top: 24px;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #666;
+}
+
+.calendar-legend div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.calendar-legend span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/* Kolory legendy */
+.reserved {
+  background-color: #d32f2f;
+}
+
+.available {
+  background-color: #388e3c;
+}
+
+.today-legend {
+  background-color: #2196f3;
+}
+
+/* Informacja o rezerwacji */
+.reservation-info {
+  margin-top: 24px;
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+  background-color: #fff8e1;
+  padding: 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  line-height: 1.5;
+}
+
+/* Payment Modal */
+.payment-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.payment-modal-content {
+  background-color: white;
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+  margin: 20px;
+}
+
+.payment-modal-content h3 {
+  margin: 0 0 16px 0;
+  color: #1a1a1a;
+  font-size: 1.25rem;
+}
+
+.payment-modal-content p {
+  margin: 8px 0;
+  color: #666;
+}
+
+.payment-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.pay-button, .cancel-button {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.pay-button {
+  background-color: #388e3c;
+  color: white;
+  flex: 2;
+}
+
+.pay-button:hover {
+  background-color: #2e7d32;
+}
+
+.cancel-button {
+  background-color: #f5f5f5;
+  color: #666;
+  flex: 1;
+}
+
+.cancel-button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+  .calendar-container {
+    padding: 24px 16px;
+    margin: 20px auto;
+    max-width: 95%;
+  }
+
+  .calendar-header {
+    margin-bottom: 16px;
+  }
+
+  .calendar-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .calendar-day {
+    padding: 8px 4px;
+    font-size: 0.85rem;
+  }
+
+  .calendar-legend {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .reservation-info {
+    font-size: 0.8rem;
+    padding: 12px;
+  }
+
+  .payment-modal-content {
+    padding: 20px;
+  }
+
+  .payment-buttons {
+    flex-direction: column;
+  }
+
+  .pay-button, .cancel-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-container {
+    padding: 20px 12px;
+    margin: 15px auto;
+    max-width: 100%;
+  }
+
+  .calendar-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .calendar-day {
+    padding: 6px 3px;
+    font-size: 0.8rem;
+  }
+
+  .calendar-legend {
+    gap: 12px;
+    font-size: 0.8rem;
+  }
+
+  .calendar-legend span {
+    width: 10px;
+    height: 10px;
+  }
+
+  .payment-modal-content {
+    padding: 16px;
+    width: 95%;
+  }
+
+  .payment-modal-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .payment-modal-content p {
+    font-size: 0.9rem;
+  }
+
+  .pay-button, .cancel-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 412px) {
+  .calendar-container {
+    padding: 12px 8px;
+    margin: 8px auto;
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  .calendar-header {
+    margin-bottom: 8px;
+    padding: 0 4px;
+  }
+
+  .calendar-header h3 {
+    font-size: 0.9rem;
+  }
+
+  .calendar-header button {
+    padding: 4px 8px;
+    font-size: 1rem;
+  }
+
+  .calendar-body {
+    gap: 4px;
+  }
+
+  .calendar-body > div:first-child {
+    font-size: 0.7rem;
+    padding: 8px 0;
+  }
+
+  .calendar-day {
+    padding: 2px;
+    font-size: 0.7rem;
+    min-height: 24px;
+  }
+
+  .calendar-legend {
+    margin-top: 12px;
+    gap: 6px;
+    font-size: 0.7rem;
+  }
+
+  .calendar-legend span {
+    width: 6px;
+    height: 6px;
+  }
+
+  .reservation-info {
+    margin-top: 12px;
+    font-size: 0.7rem;
+    padding: 8px;
+  }
+
+  .payment-modal-content {
+    padding: 12px;
+    width: 95%;
+  }
+
+  .payment-modal-content h3 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+
+  .payment-modal-content p {
+    font-size: 0.8rem;
+  }
+
+  .pay-button, .cancel-button {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Payment Success Page */
+.payment-success-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.payment-success-content {
+  background-color: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+}
+
+.payment-success-content h1 {
+  color: #388e3c;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.payment-success-content p {
+  color: #666;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.return-button {
+  background-color: #388e3c;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.return-button:hover {
+  background-color: #2e7d32;
+}
+
+@media (max-width: 768px) {
+  .payment-success-content {
+    padding: 30px 20px;
+  }
+
+  .payment-success-content h1 {
+    font-size: 1.5rem;
+  }
+}
+
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-row label {
+  font-size: 14px;
+  color: #666;
+}
+
+.stripe-element-wrapper {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.submit-button {
+  background-color: #388e3c;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  width: 100%;
+}
+
+.submit-button:hover {
+  background-color: #2e7d32;
+}
+
+.submit-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}

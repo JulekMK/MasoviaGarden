@@ -1,0 +1,181 @@
+/* App.css */
+@import './styles/header.css';
+@import './styles/main.css';
+@import './styles/testimonials.css';
+@import './styles/about.css';
+@import './styles/footer.css';
+@import './styles/contact.css';
+
+html {
+  scroll-behavior: smooth;
+  transform: scale(1.135);
+  transform-origin: top center;
+  width: 88.1%; /* 100% / 1.135 ≈ 88.1% */
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 80px; /* Zapobiega zakrywaniu treści przez header */
+}
+
+/* Responsywność */
+@media (max-width: 1024px) {
+  html {
+    width: 92%;
+  }
+
+  #main {
+    padding: 50px 5%;
+  }
+
+  #napisy1 {
+    margin-top: -40px;
+  }
+
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonial-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    width: 95%;
+  }
+
+  #main {
+    padding: 50px 5%;
+  }
+
+  #napisy1 {
+    margin-top: -30px;
+  }
+
+  #main h1 {
+    font-size: 2.5rem;
+  }
+
+  #main h2 {
+    font-size: 1.8rem;
+  }
+
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  #footer {
+    padding: 20px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    width: 100%;
+    transform: scale(1);
+  }
+
+  #main {
+    padding: 30px 3%;
+  }
+
+  .hlinks a {
+    padding: 8px;
+    margin: 0 10px;
+  }
+
+  #napisy1 {
+    margin-top: -20px;
+  }
+
+  #main h1 {
+    font-size: 2rem;
+  }
+
+  #main h2 {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    height: auto;
+  }
+
+  .card img {
+    height: 150px;
+  }
+
+  .testimonial-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .testimonial {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 412px) {
+  html {
+    width: 100%;
+    transform: scale(1);
+  }
+
+  #main {
+    padding: 20px 2%;
+  }
+
+  #main h1 {
+    font-size: 1.8rem;
+  }
+
+  #main h2 {
+    font-size: 1.3rem;
+  }
+
+  .hlinks a {
+    padding: 6px;
+    margin: 0 6px;
+    font-size: 0.9rem;
+  }
+}
+
+#main {
+  padding: 100px 5%;
+  text-align: center;
+  background-color: #f4f4f4;
+  width: 100%;
+}
+
+@media (min-width: 1440px) {
+  html {
+    width: 88.1%;
+  }
+
+  #main {
+    padding: 130px 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  #header {
+    width: 100%;
+  }
+}
+
+
+
+
